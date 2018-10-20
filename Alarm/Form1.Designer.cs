@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.label1 = new System.Windows.Forms.Label();
             this.amRadio = new System.Windows.Forms.RadioButton();
             this.pmRadio = new System.Windows.Forms.RadioButton();
@@ -40,7 +41,7 @@
             this.timerCheck = new System.Windows.Forms.Timer(this.components);
             this.lblAlarmTime = new System.Windows.Forms.Label();
             this.afterMinute = new System.Windows.Forms.Timer(this.components);
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.speechTimer = new System.Windows.Forms.Timer(this.components);
             this.btnOff = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -106,9 +107,9 @@
             // setAlarm
             // 
             this.setAlarm.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.setAlarm.Location = new System.Drawing.Point(0, 87);
+            this.setAlarm.Location = new System.Drawing.Point(0, 259);
             this.setAlarm.Name = "setAlarm";
-            this.setAlarm.Size = new System.Drawing.Size(296, 30);
+            this.setAlarm.Size = new System.Drawing.Size(502, 30);
             this.setAlarm.TabIndex = 6;
             this.setAlarm.Text = "Set Alarm";
             this.setAlarm.UseVisualStyleBackColor = true;
@@ -133,11 +134,18 @@
             this.afterMinute.Interval = 999;
             this.afterMinute.Tick += new System.EventHandler(this.afterMinute_Tick);
             // 
+            // speechTimer
+            // 
+            this.speechTimer.Enabled = true;
+            this.speechTimer.Interval = 999;
+            this.speechTimer.Tick += new System.EventHandler(this.speechTimer_Tick);
+            // 
             // btnOff
             // 
+            this.btnOff.Image = ((System.Drawing.Image)(resources.GetObject("btnOff.Image")));
             this.btnOff.Location = new System.Drawing.Point(0, 87);
             this.btnOff.Name = "btnOff";
-            this.btnOff.Size = new System.Drawing.Size(296, 30);
+            this.btnOff.Size = new System.Drawing.Size(502, 175);
             this.btnOff.TabIndex = 8;
             this.btnOff.Text = "Stop Alarm";
             this.btnOff.UseVisualStyleBackColor = true;
@@ -148,7 +156,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(296, 117);
+            this.ClientSize = new System.Drawing.Size(502, 289);
             this.Controls.Add(this.btnOff);
             this.Controls.Add(this.lblAlarmTime);
             this.Controls.Add(this.setAlarm);
@@ -169,7 +177,6 @@
         private System.Windows.Forms.Timer currentTimer;
         private System.Windows.Forms.Timer alarmTimer;
         private System.Windows.Forms.Timer timerCheck;
-        private System.Windows.Forms.Timer timer1;
         public System.Windows.Forms.Timer afterMinute;
         public System.Windows.Forms.Label label1;
         public System.Windows.Forms.RadioButton amRadio;
@@ -179,5 +186,6 @@
         public System.Windows.Forms.MaskedTextBox alarmBox;
         public System.Windows.Forms.Label lblAlarmTime;
         private System.Windows.Forms.Button btnOff;
+        public System.Windows.Forms.Timer speechTimer;
     }
 }

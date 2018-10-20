@@ -31,8 +31,7 @@ namespace Alarm
 
         {
 
-            afterMinute.Enabled = false;
-            currentTimer.Enabled=false;
+           
             
             music.Stop();
             MessageBox.Show("ARISE MY SON");
