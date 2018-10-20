@@ -22,7 +22,6 @@ namespace Alarm
         {
             InitializeComponent();
 
-            // Find your Account Sid and Auth Token at twilio.com/user/account
             string AccountSid = "ACde508c15e365dd92a9ad401840e03733";
             string AuthToken = "9a6804457c7d00fd1c1bd15b01c4b193";
 
