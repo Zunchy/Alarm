@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -20,6 +21,19 @@ namespace Alarm
         private void Form1_Load(object sender, EventArgs e)
         {
             currentTime.Text = DateTime.Now.ToString("hh:mm:ss tt");
+
+            var message = new MailMessage();
+            message.From = new MailAddress("ragected@gmail.com");
+
+            message.To.Add(new MailAddress("2163189822@vtext.com"));//See carrier destinations below
+                                                                    //message.To.Add(new MailAddress("5551234568@txt.att.net"));
+
+            //message.CC.Add(new MailAddress("carboncopy@foo.bar.com"));
+            message.Subject = "This is my subject";
+            message.Body = "This is the content";
+
+            var client = new SmtpClient();
+            client.Send(message);
         }
 
 
