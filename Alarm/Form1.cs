@@ -17,7 +17,7 @@ namespace Alarm
     public partial class Form1 : Form
     {
 
-        SoundPlayer audio = new SoundPlayer(Alarm.Properties.Resources.TheRock); // here WindowsFormsApplication1 is the namespace and Connect is the audio file name
+       public SoundPlayer audio = new SoundPlayer(Alarm.Properties.Resources.TheRock); // here WindowsFormsApplication1 is the namespace and Connect is the audio file name
 
         public Form1()
         {
@@ -65,7 +65,7 @@ namespace Alarm
                 lblAlarmTime.Text += " PM";
 
             afterMinute.Enabled = true;
-            alarmOff.Visible = true;
+
         }
 
         private void timerCheck_Tick(object sender, EventArgs e)
@@ -75,11 +75,8 @@ namespace Alarm
             {
                 audio.Play();
 
-              
-  
-
-                this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
-
+                btnOff.Visible = true;
+                setAlarm.Visible = false;
             }
         }
 
@@ -93,7 +90,7 @@ namespace Alarm
             if (difference.Minutes == 01 && minute == false)
             {
 
-
+             
                 string AccountSid = "ACde508c15e365dd92a9ad401840e03733";
                 string AuthToken = "9a6804457c7d00fd1c1bd15b01c4b193";
 
@@ -119,11 +116,12 @@ namespace Alarm
 
         }
 
-        private void alarmOff_Click(object sender, EventArgs e)
+        private void btnOff_Click(object sender, EventArgs e)
         {
+            afterMinute.Enabled = false;
+
+
             audio.Stop();
-            alarmTimer.Enabled = false;
-            this.Show();
         }
     }
     }
