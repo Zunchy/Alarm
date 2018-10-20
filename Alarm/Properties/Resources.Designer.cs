@@ -126,15 +126,6 @@ namespace Alarm.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream TheRock {
-            get {
-                return ResourceManager.GetStream("TheRock", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
-        /// </summary>
         internal static System.IO.UnmanagedMemoryStream ufo {
             get {
                 return ResourceManager.GetStream("ufo", resourceCulture);
