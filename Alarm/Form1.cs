@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using Twilio.Clients;
 using Twilio.Rest.Api.V2010.Account;
 using System.Media;
+
 namespace Alarm
 {
     public partial class Form1 : Form
@@ -97,7 +98,7 @@ namespace Alarm
                 TwilioClient.Init(AccountSid, AuthToken);
 
                 var message = MessageResource.Create(
-                body: "Call me to wake me up.",
+                body: "This message was sent because I was unable to wake up from my alarm. Please call to wake me up.",
                 from: new Twilio.Types.PhoneNumber("+14402765334"),
                 to: new Twilio.Types.PhoneNumber("+12167744556")
             );
