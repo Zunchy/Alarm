@@ -64,7 +64,7 @@ namespace Alarm
 
             if (lblAlarmTime.Text == currentTime.Text)
             {
-               audio.Play();
+                audio.Play();
 
                 btnOff.Visible = true;
                 setAlarm.Visible = false;
@@ -87,7 +87,7 @@ namespace Alarm
                 TwilioClient.Init(AccountSid, AuthToken);
 
                 var message = MessageResource.Create(
-                body: "This message was sent because I was unable to wake up from my alarm. Please call to wake me up.",
+                body: "This message was sent because I was unable to wake up from my alarm. Yes I am a failure I know. Please call to wake me up.",
                 from: new Twilio.Types.PhoneNumber("+14402765334"),
                 to: new Twilio.Types.PhoneNumber("+12167744556")
                 );
@@ -98,15 +98,15 @@ namespace Alarm
 
             } //end if
 
-            if (difference.Minutes >= 02) {
+            if (difference.Minutes >= 00) {
 
 
                 synthesizer.Volume = 100;  // 0...100
-                synthesizer.Rate = 10;     // -10...10
+                synthesizer.Rate = 5;     // -10...10
                 synthesizer.SelectVoiceByHints(VoiceGender.Male, VoiceAge.Adult);
 
                
-                synthesizer.SpeakAsync("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+                synthesizer.SpeakAsync("AAAAAAAAAAAAAAAAAAA WAKE UP AAAAAAAAAAAAAAAAAAAAAAAAAAA WAKE UP AAAAAAAAAAAHHHHHHH");
                 
             }
               

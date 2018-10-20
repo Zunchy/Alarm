@@ -101,5 +101,8 @@
   <ItemGroup>
     <None Include="Resources\TheRock.wav" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\clock.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
