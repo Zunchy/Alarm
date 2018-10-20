@@ -1,4 +1,5 @@
 ﻿namespace Alarm
+namespace Alarm
 {
     partial class Form1
     {
