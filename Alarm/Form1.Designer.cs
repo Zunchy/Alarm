@@ -28,20 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // Form1
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "Form1";
             this.Text = "Form1";
-            this.ResumeLayout(false);
-
         }
 
         #endregion
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.RadioButton amRadio;
+        private System.Windows.Forms.RadioButton pmRadio;
+        private System.Windows.Forms.Label currentTime;
+        private System.Windows.Forms.Timer currentTimer;
+        private System.Windows.Forms.Timer alarmTimer;
+        private System.Windows.Forms.Button setAlarm;
+        private System.Windows.Forms.Timer timerCheck;
+        internal System.Windows.Forms.MaskedTextBox alarmBox;
+        private System.Windows.Forms.Label lblAlarmTime;
     }
 }
 
