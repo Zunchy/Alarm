@@ -26,7 +26,7 @@ namespace Alarm
             message.From = new MailAddress("ragected@gmail.com");
 
             message.To.Add(new MailAddress("2163189822@vtext.com"));//See carrier destinations below
-                                                                      //message.To.Add(new MailAddress("5551234568@txt.att.net"));
+                                                                    //message.To.Add(new MailAddress("5551234568@txt.att.net"));
 
             //message.CC.Add(new MailAddress("carboncopy@foo.bar.com"));
             message.Subject = "This is my subject";
@@ -45,7 +45,7 @@ namespace Alarm
 
         private void alarmTimer_Tick(object sender, EventArgs e)
         {
-           
+
         }
 
         private void setAlarm_Click(object sender, EventArgs e)
@@ -58,13 +58,13 @@ namespace Alarm
             else
                 lblAlarmTime.Text += " PM";
 
-           
-            
+
+
         }
 
         private void timerCheck_Tick(object sender, EventArgs e)
         {
-     
+
             if (lblAlarmTime.Text == currentTime.Text)
                 MessageBox.Show("Yo dawg wake yo stanky ass up");
         }
