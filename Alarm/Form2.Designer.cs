@@ -35,12 +35,16 @@
             // currentTime
             // 
             this.currentTime.Size = new System.Drawing.Size(68, 13);
-            this.currentTime.Text = "01:18:43 PM";
+            this.currentTime.Text = "01:34:58 PM";
             // 
             // setAlarm
             // 
             this.setAlarm.Location = new System.Drawing.Point(0, 420);
             this.setAlarm.Size = new System.Drawing.Size(800, 30);
+            // 
+            // alarmBox
+            // 
+            this.alarmBox.Location = new System.Drawing.Point(52, 41);
             // 
             // lblWake
             // 

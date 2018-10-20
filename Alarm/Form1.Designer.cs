@@ -41,6 +41,7 @@
             this.lblAlarmTime = new System.Windows.Forms.Label();
             this.afterMinute = new System.Windows.Forms.Timer(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.alarmOff = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -105,9 +106,9 @@
             // setAlarm
             // 
             this.setAlarm.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.setAlarm.Location = new System.Drawing.Point(0, 87);
+            this.setAlarm.Location = new System.Drawing.Point(0, 144);
             this.setAlarm.Name = "setAlarm";
-            this.setAlarm.Size = new System.Drawing.Size(296, 30);
+            this.setAlarm.Size = new System.Drawing.Size(361, 30);
             this.setAlarm.TabIndex = 6;
             this.setAlarm.Text = "Set Alarm";
             this.setAlarm.UseVisualStyleBackColor = true;
@@ -132,11 +133,24 @@
             this.afterMinute.Interval = 999;
             this.afterMinute.Tick += new System.EventHandler(this.afterMinute_Tick);
             // 
+            // alarmOff
+            // 
+            this.alarmOff.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.alarmOff.Location = new System.Drawing.Point(0, 111);
+            this.alarmOff.Name = "alarmOff";
+            this.alarmOff.Size = new System.Drawing.Size(361, 33);
+            this.alarmOff.TabIndex = 8;
+            this.alarmOff.Text = "Alarm Off";
+            this.alarmOff.UseVisualStyleBackColor = true;
+            this.alarmOff.Visible = false;
+            this.alarmOff.Click += new System.EventHandler(this.alarmOff_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(296, 117);
+            this.ClientSize = new System.Drawing.Size(361, 174);
+            this.Controls.Add(this.alarmOff);
             this.Controls.Add(this.lblAlarmTime);
             this.Controls.Add(this.setAlarm);
             this.Controls.Add(this.alarmBox);
@@ -153,7 +167,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.Timer currentTimer;
         private System.Windows.Forms.Timer alarmTimer;
         private System.Windows.Forms.Timer timerCheck;
         private System.Windows.Forms.Timer timer1;
@@ -165,5 +178,7 @@
         public System.Windows.Forms.Button setAlarm;
         public System.Windows.Forms.MaskedTextBox alarmBox;
         public System.Windows.Forms.Label lblAlarmTime;
+        public System.Windows.Forms.Timer currentTimer;
+        private System.Windows.Forms.Button alarmOff;
     }
 }

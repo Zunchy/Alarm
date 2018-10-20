@@ -65,7 +65,7 @@ namespace Alarm
                 lblAlarmTime.Text += " PM";
 
             afterMinute.Enabled = true;
-
+            alarmOff.Visible = true;
         }
 
         private void timerCheck_Tick(object sender, EventArgs e)
@@ -75,10 +75,7 @@ namespace Alarm
             {
                 audio.Play();
 
-                Form2 form2 = new Form2(audio);
-                //this.Hide();
-                form2.Show();
-
+              
   
 
                 this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
@@ -96,7 +93,7 @@ namespace Alarm
             if (difference.Minutes == 01 && minute == false)
             {
 
-             
+
                 string AccountSid = "ACde508c15e365dd92a9ad401840e03733";
                 string AuthToken = "9a6804457c7d00fd1c1bd15b01c4b193";
 
@@ -120,6 +117,13 @@ namespace Alarm
         private void amRadio_CheckedChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void alarmOff_Click(object sender, EventArgs e)
+        {
+            audio.Stop();
+            alarmTimer.Enabled = false;
+            this.Show();
         }
     }
     }

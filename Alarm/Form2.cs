@@ -30,15 +30,14 @@ namespace Alarm
         {
 
             afterMinute.Enabled = false;
-          
+            currentTimer.Enabled=false;
             
             music.Stop();
-            
+            MessageBox.Show("ARISE MY SON");
         }
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            afterMinute.Enabled = false;
             label1.Visible = false;
             alarmBox.Visible = false;
             amRadio.Visible = false;
