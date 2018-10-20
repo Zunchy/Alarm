@@ -79,6 +79,13 @@ namespace Alarm
             {
                 audio.Play();
 
+                Form2 form2 = new Form2(audio);
+                form2.Show();
+
+  
+
+                this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
+
             }
         }
 
@@ -110,7 +117,7 @@ namespace Alarm
                 
 
            
-              // Console.WriteLine(message.Sid);
+              
             }
 
         private void amRadio_CheckedChanged(object sender, EventArgs e)
