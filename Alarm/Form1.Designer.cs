@@ -41,6 +41,7 @@
             this.lblAlarmTime = new System.Windows.Forms.Label();
             this.afterMinute = new System.Windows.Forms.Timer(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.btnOff = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -132,11 +133,23 @@
             this.afterMinute.Interval = 999;
             this.afterMinute.Tick += new System.EventHandler(this.afterMinute_Tick);
             // 
+            // btnOff
+            // 
+            this.btnOff.Location = new System.Drawing.Point(0, 87);
+            this.btnOff.Name = "btnOff";
+            this.btnOff.Size = new System.Drawing.Size(296, 30);
+            this.btnOff.TabIndex = 8;
+            this.btnOff.Text = "Stop Alarm";
+            this.btnOff.UseVisualStyleBackColor = true;
+            this.btnOff.Visible = false;
+            this.btnOff.Click += new System.EventHandler(this.btnOff_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(296, 117);
+            this.Controls.Add(this.btnOff);
             this.Controls.Add(this.lblAlarmTime);
             this.Controls.Add(this.setAlarm);
             this.Controls.Add(this.alarmBox);
@@ -165,5 +178,6 @@
         public System.Windows.Forms.Button setAlarm;
         public System.Windows.Forms.MaskedTextBox alarmBox;
         public System.Windows.Forms.Label lblAlarmTime;
+        private System.Windows.Forms.Button btnOff;
     }
 }

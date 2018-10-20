@@ -17,7 +17,7 @@ namespace Alarm
     public partial class Form1 : Form
     {
 
-        SoundPlayer audio = new SoundPlayer(Alarm.Properties.Resources.TheRock); // here WindowsFormsApplication1 is the namespace and Connect is the audio file name
+       public SoundPlayer audio = new SoundPlayer(Alarm.Properties.Resources.TheRock); // here WindowsFormsApplication1 is the namespace and Connect is the audio file name
 
         public Form1()
         {
@@ -75,14 +75,8 @@ namespace Alarm
             {
                 audio.Play();
 
-                Form2 form2 = new Form2(audio);
-                //this.Hide();
-                form2.Show();
-
-  
-
-                this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
-
+                btnOff.Visible = true;
+                setAlarm.Visible = false;
             }
         }
 
@@ -120,6 +114,14 @@ namespace Alarm
         private void amRadio_CheckedChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnOff_Click(object sender, EventArgs e)
+        {
+            afterMinute.Enabled = false;
+
+
+            audio.Stop();
         }
     }
     }
