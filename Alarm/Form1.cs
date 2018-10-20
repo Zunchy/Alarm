@@ -13,19 +13,30 @@ using Twilio.Clients;
 using Twilio.Rest.Api.V2010.Account;
 using System.Media;
 using System.Speech.Synthesis;
+using System.IO;
 
 namespace Alarm
 {
     public partial class Form1 : Form
     {
 
+
        public SoundPlayer audio = new SoundPlayer(Alarm.Properties.Resources.TheRock);
        public SpeechSynthesizer synthesizer = new SpeechSynthesizer();
        public Boolean minute = false;
 
+    
+
         public Form1()
         {
             InitializeComponent();
+
+
+            //var files = new DirectoryInfo(@"c:\Resources\sounds").GetFiles();
+           // int index = new Random().Next(0, files.Length);
+
+           // Console.WriteLine(files[index].Name);
+
 
         }
 
@@ -64,6 +75,8 @@ namespace Alarm
 
             if (lblAlarmTime.Text == currentTime.Text)
             {
+
+
                 audio.Play();
 
                 btnOff.Visible = true;

@@ -99,10 +99,15 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\TheRock.wav" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Resources\clock.ico" />
+    <Content Include="Resources\sounds\alarm.wav" />
+    <Content Include="Resources\sounds\alert.wav" />
+    <Content Include="Resources\sounds\chicken.wav" />
+    <Content Include="Resources\sounds\church.wav" />
+    <Content Include="Resources\sounds\dialup.wav" />
+    <Content Include="Resources\sounds\geese.wav" />
+    <Content Include="Resources\sounds\siren.wav" />
+    <Content Include="Resources\sounds\ufo.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
