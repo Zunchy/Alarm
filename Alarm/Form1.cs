@@ -21,21 +21,19 @@ namespace Alarm
     {
 
 
-       public SoundPlayer audio = new SoundPlayer(Alarm.Properties.Resources.TheRock);
+       public SoundPlayer audio;
        public SpeechSynthesizer synthesizer = new SpeechSynthesizer();
        public Boolean minute = false;
 
-    
+        public int randNum;
 
         public Form1()
         {
             InitializeComponent();
 
 
-            //var files = new DirectoryInfo(@"c:\Resources\sounds").GetFiles();
-           // int index = new Random().Next(0, files.Length);
-
-           // Console.WriteLine(files[index].Name);
+            Random rnd = new Random();
+            randNum = rnd.Next(1, 9);
 
 
         }
@@ -76,8 +74,34 @@ namespace Alarm
             if (lblAlarmTime.Text == currentTime.Text)
             {
 
+                switch (randNum) {
+                    case 1:
+                        audio = new SoundPlayer(Alarm.Properties.Resources.alarm);
+                        break;
+                    case 2:
+                        audio = new SoundPlayer(Alarm.Properties.Resources.alert);
+                        break;
+                    case 3:
+                        audio = new SoundPlayer(Alarm.Properties.Resources.chicken);
+                        break;
+                    case 4:
+                        audio = new SoundPlayer(Alarm.Properties.Resources.church);
+                        break;
+                    case 5:
+                        audio = new SoundPlayer(Alarm.Properties.Resources.dialup);
+                        break;
+                    case 6:
+                        audio = new SoundPlayer(Alarm.Properties.Resources.geese);
+                        break;
+                    case 7:
+                        audio = new SoundPlayer(Alarm.Properties.Resources.siren);
+                        break;
+                    case 8:
+                        audio = new SoundPlayer(Alarm.Properties.Resources.ufo);
+                        break;
+                }
 
-                audio.Play();
+                audio.PlayLooping();
 
                 btnOff.Visible = true;
                 setAlarm.Visible = false;
@@ -111,7 +135,7 @@ namespace Alarm
 
             } //end if
 
-            if (difference.Minutes >= 00) {
+            if (difference.Minutes >= 02) {
 
 
                 synthesizer.Volume = 100;  // 0...100
