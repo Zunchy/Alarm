@@ -35,16 +35,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.RadioButton amRadio;
-        private System.Windows.Forms.RadioButton pmRadio;
-        private System.Windows.Forms.Label currentTime;
-        private System.Windows.Forms.Timer currentTimer;
-        private System.Windows.Forms.Timer alarmTimer;
-        private System.Windows.Forms.Button setAlarm;
-        private System.Windows.Forms.Timer timerCheck;
-        internal System.Windows.Forms.MaskedTextBox alarmBox;
-        private System.Windows.Forms.Label lblAlarmTime;
     }
 }
 
