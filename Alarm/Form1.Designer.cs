@@ -101,7 +101,6 @@
             // 
             this.alarmTimer.Enabled = true;
             this.alarmTimer.Interval = 998;
-            this.alarmTimer.Tick += new System.EventHandler(this.alarmTimer_Tick);
             // 
             // setAlarm
             // 

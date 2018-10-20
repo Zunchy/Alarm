@@ -53,10 +53,6 @@ namespace Alarm
             currentTime.Text = DateTime.Now.ToString("hh:mm:ss tt");
         }
 
-        private void alarmTimer_Tick(object sender, EventArgs e)
-        {
-
-        }
 
         private void setAlarm_Click(object sender, EventArgs e)
         {
