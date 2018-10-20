@@ -39,6 +39,8 @@
             this.setAlarm = new System.Windows.Forms.Button();
             this.timerCheck = new System.Windows.Forms.Timer(this.components);
             this.lblAlarmTime = new System.Windows.Forms.Label();
+            this.afterMinute = new System.Windows.Forms.Timer(this.components);
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // label1
@@ -59,6 +61,7 @@
             this.amRadio.TabIndex = 2;
             this.amRadio.Text = "AM";
             this.amRadio.UseVisualStyleBackColor = true;
+            this.amRadio.CheckedChanged += new System.EventHandler(this.amRadio_CheckedChanged);
             // 
             // pmRadio
             // 
@@ -102,9 +105,10 @@
             // 
             // setAlarm
             // 
-            this.setAlarm.Location = new System.Drawing.Point(117, 88);
+            this.setAlarm.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.setAlarm.Location = new System.Drawing.Point(0, 87);
             this.setAlarm.Name = "setAlarm";
-            this.setAlarm.Size = new System.Drawing.Size(75, 23);
+            this.setAlarm.Size = new System.Drawing.Size(296, 30);
             this.setAlarm.TabIndex = 6;
             this.setAlarm.Text = "Set Alarm";
             this.setAlarm.UseVisualStyleBackColor = true;
@@ -123,6 +127,11 @@
             this.lblAlarmTime.Name = "lblAlarmTime";
             this.lblAlarmTime.Size = new System.Drawing.Size(0, 13);
             this.lblAlarmTime.TabIndex = 7;
+            // 
+            // afterMinute
+            // 
+            this.afterMinute.Interval = 999;
+            this.afterMinute.Tick += new System.EventHandler(this.afterMinute_Tick);
             // 
             // Form1
             // 
@@ -155,5 +164,7 @@
         private System.Windows.Forms.Timer timerCheck;
         internal System.Windows.Forms.MaskedTextBox alarmBox;
         private System.Windows.Forms.Label lblAlarmTime;
+        private System.Windows.Forms.Timer afterMinute;
+        private System.Windows.Forms.Timer timer1;
     }
 }

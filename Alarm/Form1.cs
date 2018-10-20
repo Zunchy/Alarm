@@ -11,36 +11,39 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Twilio.Clients;
 using Twilio.Rest.Api.V2010.Account;
-
+using System.Media;
 namespace Alarm
 {
     public partial class Form1 : Form
     {
 
+        SoundPlayer audio = new SoundPlayer(Alarm.Properties.Resources.TheRock); // here WindowsFormsApplication1 is the namespace and Connect is the audio file name
 
         public Form1()
         {
             InitializeComponent();
 
-            string AccountSid = "ACde508c15e365dd92a9ad401840e03733";
-            string AuthToken = "9a6804457c7d00fd1c1bd15b01c4b193";
+        //    string AccountSid = "ACde508c15e365dd92a9ad401840e03733";
+        //    string AuthToken = "9a6804457c7d00fd1c1bd15b01c4b193";
 
-            TwilioClient.Init(AccountSid, AuthToken);
+        //    TwilioClient.Init(AccountSid, AuthToken);
 
-            var message = MessageResource.Create(
-            body: "Call me to wake me up.",
-            from: new Twilio.Types.PhoneNumber("+14402765334"),
-            to: new Twilio.Types.PhoneNumber("+12167744556")
-        );
+        //    var message = MessageResource.Create(
+        //    body: "Call me to wake me up.",
+        //    from: new Twilio.Types.PhoneNumber("+14402765334"),
+        //    to: new Twilio.Types.PhoneNumber("+12167744556")
+        //);
 
-            Console.WriteLine(message.Sid);
+        //    Console.WriteLine(message.Sid);
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             currentTime.Text = DateTime.Now.ToString("hh:mm:ss tt");
 
-            
+            //System.Media.SystemSounds.Beep.Play();
+            SoundPlayer simpleSound = new SoundPlayer(@"c:\Windows\Media\chimes.wav");
+            simpleSound.Play();
         }
 
 
@@ -65,7 +68,7 @@ namespace Alarm
             else
                 lblAlarmTime.Text += " PM";
 
-
+            afterMinute.Enabled = true;
 
         }
 
@@ -73,7 +76,46 @@ namespace Alarm
         {
 
             if (lblAlarmTime.Text == currentTime.Text)
-                MessageBox.Show("Yo dawg wake yo stanky ass up");
+            {
+                audio.Play();
+
+            }
+        }
+
+        private void afterMinute_Tick(object sender, EventArgs e)
+        {
+            DateTime alarmTime = DateTime.Parse(lblAlarmTime.Text);
+            DateTime nowTIme = DateTime.Parse(currentTime.Text);
+
+            Boolean minute = false;
+            TimeSpan difference = nowTIme- alarmTime;
+            if (difference.Minutes == 01 && minute == false)
+            {
+
+             
+                string AccountSid = "ACde508c15e365dd92a9ad401840e03733";
+                string AuthToken = "9a6804457c7d00fd1c1bd15b01c4b193";
+
+                TwilioClient.Init(AccountSid, AuthToken);
+
+                var message = MessageResource.Create(
+                body: "Call me to wake me up.",
+                from: new Twilio.Types.PhoneNumber("+14402765334"),
+                to: new Twilio.Types.PhoneNumber("+12167744556")
+            );
+                minute = true;
+                audio.Stop();
+                afterMinute.Enabled = false;
+            } //end if
+                
+
+           
+              // Console.WriteLine(message.Sid);
+            }
+
+        private void amRadio_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
-}
+    }
