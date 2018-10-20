@@ -12,7 +12,6 @@ using System.Windows.Forms;
 using Twilio.Clients;
 using Twilio.Rest.Api.V2010.Account;
 using System.Media;
-using System.IO;
 using System.Speech.Synthesis;
 
 namespace Alarm
@@ -20,31 +19,20 @@ namespace Alarm
     public partial class Form1 : Form
     {
 
-        public SoundPlayer audio = new SoundPlayer(Alarm.Properties.Resources.TheRock); // here WindowsFormsApplication1 is the namespace and Connect is the audio file name
+       public SoundPlayer audio = new SoundPlayer(Alarm.Properties.Resources.TheRock);
+       public SpeechSynthesizer synthesizer = new SpeechSynthesizer();
+       public Boolean minute = false;
 
         public Form1()
         {
             InitializeComponent();
 
-            //    string AccountSid = "ACde508c15e365dd92a9ad401840e03733";
-            //    string AuthToken = "9a6804457c7d00fd1c1bd15b01c4b193";
-
-            //    TwilioClient.Init(AccountSid, AuthToken);
-
-            //    var message = MessageResource.Create(
-            //    body: "Call me to wake me up.",
-            //    from: new Twilio.Types.PhoneNumber("+14402765334"),
-            //    to: new Twilio.Types.PhoneNumber("+12167744556")
-            //);
-
-            //    Console.WriteLine(message.Sid);
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             currentTime.Text = DateTime.Now.ToString("hh:mm:ss tt");
 
-            //System.Media.SystemSounds.Beep.Play();
             SoundPlayer simpleSound = new SoundPlayer(@"c:\Windows\Media\chimes.wav");
             simpleSound.Play();
         }
@@ -87,12 +75,11 @@ namespace Alarm
         {
             DateTime alarmTime = DateTime.Parse(lblAlarmTime.Text);
             DateTime nowTIme = DateTime.Parse(currentTime.Text);
-
-            Boolean minute = false;
+            
             TimeSpan difference = nowTIme - alarmTime;
+
             if (difference.Minutes == 01 && minute == false)
             {
-
 
                 string AccountSid = "ACde508c15e365dd92a9ad401840e03733";
                 string AuthToken = "9a6804457c7d00fd1c1bd15b01c4b193";
@@ -100,36 +87,31 @@ namespace Alarm
                 TwilioClient.Init(AccountSid, AuthToken);
 
                 var message = MessageResource.Create(
-                body: "Call me to wake me up.",
+                body: "This message was sent because I was unable to wake up from my alarm. Yes I am a failure I know. Please call to wake me up.",
                 from: new Twilio.Types.PhoneNumber("+14402765334"),
                 to: new Twilio.Types.PhoneNumber("+12167744556")
-            );
-                audio.Stop();
-                minute = false;
+                );
 
-
-
-                if (difference.Minutes == 02)
-                {
-                    MessageBox.Show("AYO cuhh");
-                    using (SpeechSynthesizer synth = new SpeechSynthesizer())
-                    {
-                        synth.SetOutputToDefaultAudioDevice();
-                        PromptBuilder voice = new PromptBuilder();
-                        voice.AppendText("yoo");
-                        synth.Speak(voice);
-                        afterMinute.Enabled = false;
-                    }
-                    minute = true;
-                } //end if
                 minute = true;
+                audio.Stop();
+
 
             } //end if
-            afterMinute.Enabled = false;
+
+            if (difference.Minutes >= 00) {
 
 
+                synthesizer.Volume = 100;  // 0...100
+                synthesizer.Rate = 5;     // -10...10
+                synthesizer.SelectVoiceByHints(VoiceGender.Male, VoiceAge.Adult);
 
+               
+                synthesizer.SpeakAsync("AAAAAAAAAAAAAAAAAAA WAKE UP AAAAAAAAAAAAAAAAAAAAAAAAAAA WAKE UP AAAAAAAAAAAHHHHHHH");
+                
+            }
+              
         }
+     
 
         private void amRadio_CheckedChanged(object sender, EventArgs e)
         {
@@ -141,27 +123,9 @@ namespace Alarm
             afterMinute.Enabled = false;
 
             audio.Stop();
-        }
 
-        private void speechTimer_Tick(object sender, EventArgs e)
-        {
-            DateTime alarmTime = DateTime.Parse(lblAlarmTime.Text);
-            DateTime nowTIme = DateTime.Parse(currentTime.Text);
+            synthesizer.Dispose();
 
-            Boolean minute = false;
-            TimeSpan difference = nowTIme - alarmTime;
-            if (difference.Minutes == 02 && minute == false)
-            {
-                using (SpeechSynthesizer synth = new SpeechSynthesizer())
-                {
-                    synth.SetOutputToDefaultAudioDevice();
-                    PromptBuilder voice = new PromptBuilder();
-                    voice.AppendText("yooooooo");
-                    synth.Speak(voice);
-                    afterMinute.Enabled = false;
-                }
-            }
         }
     }
-}
-    
+    }

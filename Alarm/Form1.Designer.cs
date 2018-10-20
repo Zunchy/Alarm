@@ -165,8 +165,9 @@
             this.Controls.Add(this.pmRadio);
             this.Controls.Add(this.amRadio);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Rude Alarm Clock";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
