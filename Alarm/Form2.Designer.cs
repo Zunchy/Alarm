@@ -32,6 +32,16 @@
             this.btnOff = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
+            // currentTime
+            // 
+            this.currentTime.Size = new System.Drawing.Size(68, 13);
+            this.currentTime.Text = "01:18:43 PM";
+            // 
+            // setAlarm
+            // 
+            this.setAlarm.Location = new System.Drawing.Point(0, 420);
+            this.setAlarm.Size = new System.Drawing.Size(800, 30);
+            // 
             // lblWake
             // 
             this.lblWake.Font = new System.Drawing.Font("Microsoft Sans Serif", 75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -61,7 +71,18 @@
             this.Controls.Add(this.lblWake);
             this.Name = "Form2";
             this.Text = "Form2";
+            this.Load += new System.EventHandler(this.Form2_Load);
+            this.Controls.SetChildIndex(this.lblWake, 0);
+            this.Controls.SetChildIndex(this.btnOff, 0);
+            this.Controls.SetChildIndex(this.label1, 0);
+            this.Controls.SetChildIndex(this.amRadio, 0);
+            this.Controls.SetChildIndex(this.pmRadio, 0);
+            this.Controls.SetChildIndex(this.currentTime, 0);
+            this.Controls.SetChildIndex(this.alarmBox, 0);
+            this.Controls.SetChildIndex(this.setAlarm, 0);
+            this.Controls.SetChildIndex(this.lblAlarmTime, 0);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

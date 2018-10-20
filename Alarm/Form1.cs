@@ -76,6 +76,7 @@ namespace Alarm
                 audio.Play();
 
                 Form2 form2 = new Form2(audio);
+                //this.Hide();
                 form2.Show();
 
   

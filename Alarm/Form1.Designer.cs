@@ -153,17 +153,17 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.RadioButton amRadio;
-        private System.Windows.Forms.RadioButton pmRadio;
-        private System.Windows.Forms.Label currentTime;
         private System.Windows.Forms.Timer currentTimer;
         private System.Windows.Forms.Timer alarmTimer;
-        private System.Windows.Forms.Button setAlarm;
         private System.Windows.Forms.Timer timerCheck;
-        internal System.Windows.Forms.MaskedTextBox alarmBox;
-        private System.Windows.Forms.Label lblAlarmTime;
-        private System.Windows.Forms.Timer afterMinute;
         private System.Windows.Forms.Timer timer1;
+        public System.Windows.Forms.Timer afterMinute;
+        public System.Windows.Forms.Label label1;
+        public System.Windows.Forms.RadioButton amRadio;
+        public System.Windows.Forms.RadioButton pmRadio;
+        public System.Windows.Forms.Label currentTime;
+        public System.Windows.Forms.Button setAlarm;
+        public System.Windows.Forms.MaskedTextBox alarmBox;
+        public System.Windows.Forms.Label lblAlarmTime;
     }
 }
