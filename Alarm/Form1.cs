@@ -44,8 +44,15 @@ namespace Alarm
         {
             currentTime.Text = DateTime.Now.ToString("hh:mm:ss tt");
 
-            SoundPlayer simpleSound = new SoundPlayer(@"c:\Windows\Media\chimes.wav");
-            simpleSound.Play();
+            string[] filePaths = Directory.GetFiles(@"Properties.Resources.sounds", "*.wav",
+                                     SearchOption.AllDirectories);
+            // Random number from 0 to the amount of files you have
+            Random rnd = new Random(Guid.NewGuid().GetHashCode());
+            int choices = rnd.Next(filePaths.Length);
+
+            // Create a new player with a random filepath from the array
+            SoundPlayer player = new SoundPlayer(filePaths[choices]);
+            player.Play();
         }
 
 

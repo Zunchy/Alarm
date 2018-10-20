@@ -138,7 +138,6 @@
             // 
             this.speechTimer.Enabled = true;
             this.speechTimer.Interval = 999;
-            this.speechTimer.Tick += new System.EventHandler(this.speechTimer_Tick);
             // 
             // btnOff
             // 
