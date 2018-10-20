@@ -46,6 +46,7 @@ namespace Alarm
             currentTime.Visible = false;
             lblAlarmTime.Visible = false;
             setAlarm.Visible = false;
+            music.Play();
         }
     }
 }
