@@ -1,4 +1,5 @@
 ﻿using System;
+using Twilio;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,46 +9,39 @@ using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
-using TextmagicRest;
-using TextmagicRest.Model;
+using Twilio.Clients;
+using Twilio.Rest.Api.V2010.Account;
 
 namespace Alarm
 {
     public partial class Form1 : Form
     {
+
+
         public Form1()
         {
             InitializeComponent();
+
+            // Find your Account Sid and Auth Token at twilio.com/user/account
+            string AccountSid = "ACde508c15e365dd92a9ad401840e03733";
+            string AuthToken = "9a6804457c7d00fd1c1bd15b01c4b193";
+
+            TwilioClient.Init(AccountSid, AuthToken);
+
+            var message = MessageResource.Create(
+            body: "Call me to wake me up.",
+            from: new Twilio.Types.PhoneNumber("+14402765334"),
+            to: new Twilio.Types.PhoneNumber("+12167744556")
+        );
+
+            Console.WriteLine(message.Sid);
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             currentTime.Text = DateTime.Now.ToString("hh:mm:ss tt");
 
-            //    var message = new MailMessage();
-            //    message.From = new MailAddress("ragected@gmail.com");
-
-            //    message.To.Add(new MailAddress("2167744556@vmobl.com"));//See carrier destinations below
-            //                                                            //message.To.Add(new MailAddress("5551234568@txt.att.net"));
-
-            //    //message.CC.Add(new MailAddress("carboncopy@foo.bar.com"));
-            //    message.Subject = "This is my subject";
-            //    message.Body = "This is the content";
-
-            //    var client = new SmtpClient("google.com");
-            //    client.Send(message);
-
-            var client = new Client("test", "my-api-key");
-            var link = client.SendMessage("Hello from TextMagic API", "+12167744556");
-            if (link.Success)
-            {
-                Console.WriteLine("Message ID {0} has been successfully sent", link.Id);
-            }
-            else
-            {
-                Console.WriteLine("Message was not sent due to following exception: {0}", link.ClientException.Message);
-          }
+            
         }
 
 
