@@ -141,7 +141,7 @@ namespace Alarm
 
             } //end if
 
-            if (difference.Minutes >= 02) {
+            if (difference.Minutes >= 02 && minute == true) {
 
 
                 synthesizer.Volume = 100;  // 0...100
