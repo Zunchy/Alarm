@@ -20,21 +20,15 @@ namespace Alarm
     public partial class Form1 : Form
     {
 
-
        public SoundPlayer audio;
        public SpeechSynthesizer synthesizer = new SpeechSynthesizer();
+
        public Boolean minute = false;
 
-        public int randNum;
-
+ 
         public Form1()
         {
             InitializeComponent();
-
-
-            Random rnd = new Random();
-            randNum = rnd.Next(1, 9);
-
 
         }
 
@@ -73,6 +67,11 @@ namespace Alarm
 
             if (lblAlarmTime.Text == currentTime.Text)
             {
+
+                int randNum;
+
+                Random rnd = new Random();
+                randNum = rnd.Next(1, 9);
 
                 switch (randNum) {
                     case 1:
