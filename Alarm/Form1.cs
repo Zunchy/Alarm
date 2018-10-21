@@ -164,6 +164,8 @@ namespace Alarm
 
             synthesizer.Dispose();
 
+            MessageBox.Show("Alarm Stopped");
+
         }
     }
 }

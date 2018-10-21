@@ -1,4 +1,4 @@
-﻿namespace Alarm
+﻿
 namespace Alarm
 {
     partial class Form1
@@ -107,10 +107,9 @@ namespace Alarm
             // 
             // setAlarm
             // 
-            this.setAlarm.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.setAlarm.Location = new System.Drawing.Point(0, 259);
+            this.setAlarm.Location = new System.Drawing.Point(0, 87);
             this.setAlarm.Name = "setAlarm";
-            this.setAlarm.Size = new System.Drawing.Size(502, 30);
+            this.setAlarm.Size = new System.Drawing.Size(310, 33);
             this.setAlarm.TabIndex = 6;
             this.setAlarm.Text = "Set Alarm";
             this.setAlarm.UseVisualStyleBackColor = true;
@@ -142,10 +141,9 @@ namespace Alarm
             // 
             // btnOff
             // 
-            this.btnOff.Image = ((System.Drawing.Image)(resources.GetObject("btnOff.Image")));
             this.btnOff.Location = new System.Drawing.Point(0, 87);
             this.btnOff.Name = "btnOff";
-            this.btnOff.Size = new System.Drawing.Size(502, 175);
+            this.btnOff.Size = new System.Drawing.Size(310, 33);
             this.btnOff.TabIndex = 8;
             this.btnOff.Text = "Stop Alarm";
             this.btnOff.UseVisualStyleBackColor = true;
@@ -156,7 +154,7 @@ namespace Alarm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(502, 289);
+            this.ClientSize = new System.Drawing.Size(310, 121);
             this.Controls.Add(this.btnOff);
             this.Controls.Add(this.lblAlarmTime);
             this.Controls.Add(this.setAlarm);
