@@ -20,12 +20,12 @@ namespace Alarm
     public partial class Form1 : Form
     {
 
-       public SoundPlayer audio;
-       public SpeechSynthesizer synthesizer = new SpeechSynthesizer();
+        public SoundPlayer audio;
+        public SpeechSynthesizer synthesizer = new SpeechSynthesizer();
 
-       public Boolean minute = false;
+        public Boolean minute = false;
 
- 
+
         public Form1()
         {
             InitializeComponent();
@@ -36,15 +36,8 @@ namespace Alarm
         {
             currentTime.Text = DateTime.Now.ToString("hh:mm:ss tt");
 
-            string[] filePaths = Directory.GetFiles(@"Properties.Resources.sounds", "*.wav",
-                                     SearchOption.AllDirectories);
-            // Random number from 0 to the amount of files you have
-            Random rnd = new Random(Guid.NewGuid().GetHashCode());
-            int choices = rnd.Next(filePaths.Length);
-
-            // Create a new player with a random filepath from the array
-            SoundPlayer player = new SoundPlayer(filePaths[choices]);
-            player.Play();
+            SoundPlayer simpleSound = new SoundPlayer(@"c:\Windows\Media\chimes.wav");
+            simpleSound.Play();
         }
 
 
@@ -80,7 +73,8 @@ namespace Alarm
                 Random rnd = new Random();
                 randNum = rnd.Next(1, 9);
 
-                switch (randNum) {
+                switch (randNum)
+                {
                     case 1:
                         audio = new SoundPlayer(Alarm.Properties.Resources.alarm);
                         break;
@@ -118,7 +112,7 @@ namespace Alarm
         {
             DateTime alarmTime = DateTime.Parse(lblAlarmTime.Text);
             DateTime nowTIme = DateTime.Parse(currentTime.Text);
-            
+
             TimeSpan difference = nowTIme - alarmTime;
 
             if (difference.Minutes == 01 && minute == false)
@@ -141,20 +135,21 @@ namespace Alarm
 
             } //end if
 
-            if (difference.Minutes >= 02 && minute == true) {
+            if (difference.Minutes >= 02 && minute == true)
+            {
 
 
                 synthesizer.Volume = 100;  // 0...100
                 synthesizer.Rate = 5;     // -10...10
                 synthesizer.SelectVoiceByHints(VoiceGender.Male, VoiceAge.Adult);
 
-               
+
                 synthesizer.SpeakAsync("AAAAAAAAAAAAAAAAAAA WAKE UP AAAAAAAAAAAAAAAAAAAAAAAAAAA WAKE UP AAAAAAAAAAAHHHHHHH");
-                
+
             }
-              
+
         }
-     
+
 
         private void amRadio_CheckedChanged(object sender, EventArgs e)
         {
@@ -171,4 +166,4 @@ namespace Alarm
 
         }
     }
-    }
+}
